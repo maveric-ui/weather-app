@@ -1,0 +1,25 @@
+.login-form-container {
+  width: 250px;
+  min-width:250px;
+  background-color: #ddd;
+  padding: 20px;
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .login-form-field__name, .login-form-field__password {
+      width:100%;
+    }
+
+    .login-form-field__controls {
+      width: 100%;
+      padding: 16px 0;
+    }
+
+    .btn-login {
+      width: 100%;
+    }
+  }
+}

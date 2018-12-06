@@ -1,0 +1,21 @@
+<div class="login-form-container">
+  <div class="form-info">
+    <p class="mat-title">Log in</p>
+  </div>
+  <form class="login-form">
+    <mat-form-field class="login-form-field__name">
+      <input type="email" matInput placeholder="Email">
+    </mat-form-field>
+
+    <mat-form-field class="login-form-field__password">
+      <input [type]=typeOfInput matInput placeholder="Password">
+      <mat-icon matSuffix (click)="handleVisibility()">{{prefixIcon}}</mat-icon>
+    </mat-form-field>
+
+    <mat-checkbox>Remember me</mat-checkbox>
+
+    <div class="login-form-field__controls">
+      <button mat-flat-button class="btn btn-login">Log in</button>
+    </div>
+  </form>
+</div>
