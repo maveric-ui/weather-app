@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  public loginForm: FormGroup;
   public hide: boolean;
   public typeOfInput: string;
   public prefixIcon: string;
@@ -14,10 +16,26 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.loginFormInit();
     this.hide = true;
     this.typeOfInput = 'password';
     this.prefixIcon = 'visibility_off';
   }
+
+  loginFormInit() {
+    this.loginForm = new FormGroup({
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.email
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+      ]),
+    });
+  }
+
+  get email() {return this.loginForm.get('email'); }
+  get password() {return this.loginForm.get('password'); }
 
   handleVisibility() {
     if (this.hide) {
@@ -29,6 +47,22 @@ export class LoginComponent implements OnInit {
       this.prefixIcon = 'visibility';
       this.hide = true;
     }
+  }
+
+  onSubmit() {
+    const controls = this.loginForm.controls;
+    if (!this.loginForm.valid) {
+      for (const control in controls) {
+        if (this.loginForm.get(control)) {
+          this.loginForm.get(control).markAsTouched({onlySelf: true});
+          this.loginForm.get(control).markAsDirty({onlySelf: true});
+        }
+      }
+      return;
+    }
+
+    console.log(this.loginForm.value);
+    this.loginForm.reset();
   }
 
 }

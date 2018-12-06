@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { LoginComponent } from './components/login/login.component';
 import {
@@ -10,19 +11,23 @@ import {
   MatButtonModule
 } from '@angular/material';
 
+const modules = [
+  CommonModule,
+  FormsModule,
+  ReactiveFormsModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatCheckboxModule,
+  MatButtonModule,
+];
+
 @NgModule({
-  imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatCheckboxModule,
-    MatButtonModule
-  ],
+  imports: [...modules],
   exports: [AuthenticationComponent],
   declarations: [
     AuthenticationComponent,
-    LoginComponent
+    LoginComponent,
   ]
 })
 export class AuthenticationModule { }
