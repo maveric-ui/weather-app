@@ -1,4 +1,4 @@
-<div class="sign-up-wrap">
+
   <div class="sign-up-form-container">
     <div class="sign-up-form-info">
       <p class="mat-title sing-up-form__title">Sign up</p>
@@ -38,8 +38,9 @@
 
       <div class="sign-up-form-field__controls">
         <button type="submit" mat-flat-button class="btn btn-sign-up">Sign up</button>
-        <button type="button" mat-flat-button class="btn btn-login">Log in</button>
+        <button type="button" mat-flat-button class="btn btn-login" (click)="onLogin()">
+          Log in
+        </button>
       </div>
     </form>
   </div>
-</div>

@@ -1,4 +1,4 @@
-<div class="login-wrap">
+
   <div class="login-form-container">
     <div class="login-form-info">
       <p class="mat-title login-form__title">Log in</p>
@@ -30,8 +30,9 @@
 
       <div class="login-form-field__controls">
         <button type="submit" mat-flat-button class="btn btn-login">Log in</button>
-        <button type="button" routerLink="sing-up" mat-flat-button class="btn btn-sign-up">Sign up</button>
+        <button type="button" mat-flat-button class="btn btn-sign-up" (click)="onSignIn()">
+          Sign up
+        </button>
       </div>
     </form>
   </div>
-</div>

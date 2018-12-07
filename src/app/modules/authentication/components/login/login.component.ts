@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 })
 export class LoginComponent implements OnInit {
+
+ @Output() nowSignUp = new EventEmitter<boolean>();
 
   public loginForm: FormGroup;
   public hide: boolean;
@@ -49,6 +51,10 @@ export class LoginComponent implements OnInit {
       this.prefixIcon = 'visibility';
       this.hide = true;
     }
+  }
+
+  onSignIn() {
+    this.nowSignUp.emit(false);
   }
 
   onSubmit() {

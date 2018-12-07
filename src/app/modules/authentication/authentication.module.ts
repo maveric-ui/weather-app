@@ -8,7 +8,7 @@ import {
   MatCheckboxModule,
   MatButtonModule
 } from '@angular/material';
-import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { AuthenticationComponent } from './authentication.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 

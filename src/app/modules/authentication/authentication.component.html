@@ -1,0 +1,4 @@
+<div class="authentication-container">
+  <app-login *ngIf="isLogin" (nowSignUp)="handleSignUp($event)"></app-login>
+  <app-sign-up *ngIf="!isLogin" (nowLogin)="handleLogIn($event)"></app-sign-up>
+</div>
