@@ -23,13 +23,15 @@ const modules = [
   MatButtonModule,
 ];
 
+const components = [
+  AuthenticationComponent,
+  LoginComponent,
+  SignUpComponent,
+];
+
 @NgModule({
   imports: [...modules],
   exports: [AuthenticationComponent],
-  declarations: [
-    AuthenticationComponent,
-    LoginComponent,
-    SignUpComponent,
-  ]
+  declarations: [...components]
 })
 export class AuthenticationModule { }

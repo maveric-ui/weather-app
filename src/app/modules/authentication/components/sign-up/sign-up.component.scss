@@ -1,40 +1,59 @@
 @import "_colors.scss";
 
-.sign-up-form-container {
-  width: 300px;
-  min-width: 300px;
-  background-color: $default-background-color;
-  padding: 25px;
-  position: relative;
-  top: 250px;
-  left: 0;
-  margin: 0 auto;
+.sign-up-wrap {
+  width: 100%;
+  height: 100vh;
+  background: $primary-background-color;
 
-  .sign-up-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  .sign-up-form-container {
+    width: 300px;
+    min-width: 300px;
+    background-color: $default-background-color;
+    padding: 25px;
+    position: relative;
+    top: 250px;
+    left: 0;
+    margin: 0 auto;
 
-    .sign-up-form-field__name,
-    .sign-up-form-field__password,
-    .sign-up-form-field__confirm-password {
-      width:100%;
-      margin-bottom: 10px;
-    }
+    .sign-up-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
 
-    .sign-up-form-field__controls {
-      width: 100%;
-      margin-top: 10px;
-    }
+      .sign-up-form-field__name,
+      .sign-up-form-field__password,
+      .sign-up-form-field__confirm-password {
+        width: 100%;
+        margin-bottom: 10px;
+      }
 
-    .btn {
-      margin: 5px 0;
-      background-color: $primary-background-color;
-      color: $default-color;
-    }
+      .sign-up-form-field__controls {
+        width: 100%;
+        margin-top: 10px;
+      }
 
-    .btn-sign-up {
-      width: 100%;
+      .btn {
+        margin: 5px 0;
+        background-color: $primary-background-color;
+        color: $default-color;
+      }
+
+      .btn-sign-up {
+        width: 100%;
+      }
+
+      .btn-login {
+        width: 100%;
+        padding: 0;
+
+        .login-link {
+          width: 100%;
+          display: block;
+          color: $default-color;
+          text-decoration: none;
+        }
+      }
     }
   }
 }
+

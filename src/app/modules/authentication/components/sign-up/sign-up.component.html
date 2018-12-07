@@ -1,42 +1,45 @@
-<div class="sign-up-form-container">
-  <div class="sign-up-form-info">
-    <p class="mat-title sing-up-form__title">Sign up</p>
-  </div>
-
-  <form [formGroup]="singUpForm" class="sign-up-form" (ngSubmit)="onSubmit()">
-    <mat-form-field class="sign-up-form-field__name">
-      <input type="email" matInput placeholder="Email" formControlName="email">
-      <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
-        <mat-error *ngIf="email.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
-        <mat-error *ngIf="email.hasError('email')">
-          Email is <strong>not suitable</strong>
-        </mat-error>
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="sign-up-form-field__password">
-      <input [type]=typeOfInput matInput placeholder="Password" formControlName="password">
-      <mat-icon matSuffix (click)="handleVisibility()">{{prefixIcon}}</mat-icon>
-      <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
-        <mat-error *ngIf="password.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="sign-up-form-field__confirm-password">
-      <input [type]=typeOfInput matInput placeholder="Confirm password" formControlName="confirmPassword">
-      <mat-error *ngIf="confirmPassword.invalid && (password.dirty || password.touched)">
-        <mat-error *ngIf="confirmPassword.hasError('required')">
-          Confirm password is <strong>required</strong>
-        </mat-error>
-      </mat-error>
-    </mat-form-field>
-
-    <div class="sign-up-form-field__controls">
-      <button type="submit" mat-flat-button class="btn btn-sign-up">Sign up</button>
+<div class="sign-up-wrap">
+  <div class="sign-up-form-container">
+    <div class="sign-up-form-info">
+      <p class="mat-title sing-up-form__title">Sign up</p>
     </div>
-  </form>
+
+    <form [formGroup]="singUpForm" class="sign-up-form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="sign-up-form-field__name">
+        <input type="email" matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+          <mat-error *ngIf="email.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="email.hasError('email')">
+            Email is <strong>not suitable</strong>
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sign-up-form-field__password">
+        <input [type]=typeOfInput matInput placeholder="Password" formControlName="password">
+        <mat-icon matSuffix (click)="handleVisibility()">{{prefixIcon}}</mat-icon>
+        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+          <mat-error *ngIf="password.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sign-up-form-field__confirm-password">
+        <input [type]=typeOfInput matInput placeholder="Confirm password" formControlName="confirmPassword">
+        <mat-error *ngIf="confirmPassword.invalid && (password.dirty || password.touched)">
+          <mat-error *ngIf="confirmPassword.hasError('required')">
+            Confirm password is <strong>required</strong>
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="sign-up-form-field__controls">
+        <button type="submit" mat-flat-button class="btn btn-sign-up">Sign up</button>
+        <button type="button" mat-flat-button class="btn btn-login">Log in</button>
+      </div>
+    </form>
+  </div>
 </div>
