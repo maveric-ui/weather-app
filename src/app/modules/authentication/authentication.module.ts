@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthenticationComponent } from './components/authentication/authentication.component';
-import { LoginComponent } from './components/login/login.component';
 import {
   MatFormFieldModule,
   MatInputModule,
@@ -10,6 +8,9 @@ import {
   MatCheckboxModule,
   MatButtonModule
 } from '@angular/material';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const modules = [
   CommonModule,
@@ -28,6 +29,7 @@ const modules = [
   declarations: [
     AuthenticationComponent,
     LoginComponent,
+    SignUpComponent,
   ]
 })
 export class AuthenticationModule { }

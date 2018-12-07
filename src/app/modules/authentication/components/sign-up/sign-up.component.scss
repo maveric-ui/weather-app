@@ -1,6 +1,6 @@
 @import "_colors.scss";
 
-.login-form-container {
+.sign-up-form-container {
   width: 300px;
   min-width: 300px;
   background-color: $default-background-color;
@@ -10,42 +10,27 @@
   left: 0;
   margin: 0 auto;
 
-  .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
-    background-color: $form-primary-color;
-  }
-
-  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-    background-color: $form-primary-color;
-  }
-
-  .login-form {
+  .sign-up-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
-    .login-form-field__name, .login-form-field__password {
+    .sign-up-form-field__name,
+    .sign-up-form-field__password,
+    .sign-up-form-field__confirm-password {
       width:100%;
       margin-bottom: 10px;
     }
 
-    .login-form-field__controls {
+    .sign-up-form-field__controls {
       width: 100%;
       margin-top: 10px;
-    }
-
-    .login-form__checkbox {
-      margin: 5px 0 10px;
-      font-size: 14px;
     }
 
     .btn {
       margin: 5px 0;
       background-color: $primary-background-color;
       color: $default-color;
-    }
-
-    .btn-login {
-      width: 100%;
     }
 
     .btn-sign-up {
