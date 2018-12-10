@@ -1,0 +1,12 @@
+@import "./colors";
+
+.header-container {
+  height: 80px;
+  background: $default-background-color;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}

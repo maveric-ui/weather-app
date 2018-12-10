@@ -6,14 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { AppRoutingModule } from './router/app-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { WeatherModule } from '../weather/weather.module';
+import { MainModule } from '../main/main.module';
 
 const modules = [
   BrowserModule,
   BrowserAnimationsModule,
   AppRoutingModule,
   AuthenticationModule,
-  WeatherModule
+  MainModule
 ];
 
 @NgModule({

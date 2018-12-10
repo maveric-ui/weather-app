@@ -3,24 +3,24 @@ import { CommonModule } from '@angular/common';
 import { WeatherComponent } from './weather.component';
 import { WeatherTodayComponent } from './components/weather-today/weather-today.component';
 import { WeatherForecastComponent } from './components/weather-forecast/weather-forecast.component';
-import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './services/weather.service';
+import { WeatherSearchComponent } from './components/weather-search/weather-search.component';
 
-const components = [
-  WeatherComponent,
-  WeatherTodayComponent,
-  WeatherForecastComponent,
-  HeaderComponent
+const modules = [
+  CommonModule,
+  HttpClientModule,
 ];
 
 @NgModule({
-  declarations: [...components],
-  imports: [
-    CommonModule,
-    HttpClientModule
+  declarations: [
+    WeatherComponent,
+    WeatherTodayComponent,
+    WeatherForecastComponent,
+    WeatherSearchComponent
   ],
-  exports: [WeatherComponent],
+  imports: [...modules],
+  exports: [WeatherComponent, WeatherSearchComponent],
   providers: [WeatherService]
 })
 export class WeatherModule { }

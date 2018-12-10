@@ -6,7 +6,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   encapsulation: ViewEncapsulation.None
-
 })
 export class LoginComponent implements OnInit {
 
