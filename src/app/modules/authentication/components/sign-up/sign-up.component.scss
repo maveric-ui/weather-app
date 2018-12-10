@@ -1,5 +1,13 @@
 @import "_colors.scss";
 
+.sign-up-form__wrap {
+  width: 100%;
+  height: 100vh;
+  background: $primary-background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   .sign-up-form-container {
     width: 300px;
     min-width: 300px;
@@ -21,29 +29,23 @@
       .sign-up-form-field__controls {
         width: 100%;
         margin-top: 10px;
-      }
 
-      .btn {
-        margin: 5px 0;
-        background-color: $primary-background-color;
-        color: $default-color;
-      }
-
-      .btn-sign-up {
-        width: 100%;
-      }
-
-      .btn-login {
-        width: 100%;
-        padding: 0;
-
-        .login-link {
+        .btn-sign-up {
           width: 100%;
-          display: block;
+          margin: 5px 0;
+          background-color: $primary-background-color;
           color: $default-color;
-          text-decoration: none;
+        }
+
+        .controls__login {
+          text-align: center;
+          margin: 10px 0;
+
+          .controls__login__title {
+            margin-right: 10px;
+          }
         }
       }
     }
   }
-
+}

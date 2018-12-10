@@ -1,4 +1,4 @@
-
+<div class="login-form__wrap">
   <div class="login-form-container">
     <div class="login-form-info">
       <p class="mat-title login-form__title">Log in</p>
@@ -29,10 +29,12 @@
       <mat-checkbox class="login-form__checkbox">Remember me</mat-checkbox>
 
       <div class="login-form-field__controls">
-        <button type="submit" mat-flat-button class="btn btn-login">Log in</button>
-        <button type="button" mat-flat-button class="btn btn-sign-up" (click)="onSignIn()">
-          Sign up
-        </button>
+        <button type="submit" mat-flat-button class="btn-login">Log in</button>
+        <div class="controls__sign-up">
+          <span class="controls__sign-up__title">New user?</span>
+          <a href="sign-up">Sign up</a>
+        </div>
       </div>
     </form>
   </div>
+</div>

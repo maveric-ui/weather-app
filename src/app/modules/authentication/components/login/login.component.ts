@@ -10,14 +10,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
- @Output() nowSignUp = new EventEmitter<boolean>();
-
   public loginForm: FormGroup;
   public hide: boolean;
   public typeOfInput: string;
   public prefixIcon: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.loginFormInit();
@@ -38,8 +37,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get email() {return this.loginForm.get('email'); }
-  get password() {return this.loginForm.get('password'); }
+  get email() {
+    return this.loginForm.get('email');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
+  }
 
   handleVisibility() {
     if (this.hide) {
@@ -51,10 +55,6 @@ export class LoginComponent implements OnInit {
       this.prefixIcon = 'visibility';
       this.hide = true;
     }
-  }
-
-  onSignIn() {
-    this.nowSignUp.emit(false);
   }
 
   onSubmit() {
@@ -72,5 +72,4 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.loginForm.reset();
   }
-
 }

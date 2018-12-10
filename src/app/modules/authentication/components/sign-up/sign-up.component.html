@@ -1,4 +1,4 @@
-
+<div class="sign-up-form__wrap">
   <div class="sign-up-form-container">
     <div class="sign-up-form-info">
       <p class="mat-title sing-up-form__title">Sign up</p>
@@ -37,10 +37,12 @@
       </mat-form-field>
 
       <div class="sign-up-form-field__controls">
-        <button type="submit" mat-flat-button class="btn btn-sign-up">Sign up</button>
-        <button type="button" mat-flat-button class="btn btn-login" (click)="onLogin()">
-          Log in
-        </button>
+        <button type="submit" mat-flat-button class="btn-sign-up">Sign up</button>
+        <div class="controls__login">
+          <span class="controls__login__title">Already have account?</span>
+          <a href="login">Log in</a>
+        </div>
       </div>
     </form>
   </div>
+</div>

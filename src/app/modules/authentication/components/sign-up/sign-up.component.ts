@@ -8,8 +8,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-  @Output() nowLogin = new EventEmitter<boolean>();
-
   public singUpForm: FormGroup;
   public hide: boolean;
   public typeOfInput: string;
@@ -54,10 +52,6 @@ export class SignUpComponent implements OnInit {
       this.prefixIcon = 'visibility';
       this.hide = true;
     }
-  }
-
-  onLogin() {
-    this.nowLogin.emit(true);
   }
 
   onSubmit() {
