@@ -1,0 +1,58 @@
+@import "./colors";
+
+.weather-today-container {
+  color: $default-color;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: relative;
+  top: 40px;
+
+  .weather-today__temp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 48px;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 400;
+  }
+
+  .weather-today__icon {
+    text-align: center;
+
+    img {
+      width: 70px;
+      height: 70px;
+    }
+
+    .weather-today__icon-description {
+      font-size: 18px;
+      font-family: 'Helvetica', sans-serif;
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .weather-today__description {
+    width: 100%;
+    margin-top: 20px;
+    background-color: $default-background-color;
+    color: $primary-color;
+
+    .description-list-items {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 0;
+      list-style: none;
+
+      .title-item {
+        font-weight: 700;
+        margin-right: 10px;
+      }
+
+    }
+  }
+}

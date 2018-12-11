@@ -1,1 +1,10 @@
 @import './colors';
+
+.weather-container {
+  height: calc(100% - 80px);
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}

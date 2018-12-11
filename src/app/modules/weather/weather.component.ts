@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WeatherService } from './services/weather.service';
 import { SearchKeyService } from '../main/shared/search-key.service';
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { WeatherToday } from './classes/weather-today';
 
 
 @Component({
@@ -12,9 +13,10 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class WeatherComponent implements OnInit, OnDestroy {
 
-  private subscription: Subscription;
   private unsubscribe: Subject<void> = new Subject();
   private startKey: string;
+
+  public weatherTodayData: WeatherToday[];
 
   constructor(private weatherService: WeatherService,
               private searchKeyService: SearchKeyService) { }
@@ -27,25 +29,22 @@ export class WeatherComponent implements OnInit, OnDestroy {
 
   getWeatherTodayData() {
     this.weatherService.getWeatherToday(this.startKey)
-      .pipe(takeUntil(this.unsubscribe))
-      .subscribe((res) => console.log(res));
+      .subscribe((res) => this.weatherTodayData = res );
 
   }
 
   filterWeatherTodayData() {
     this.searchKeyService.emitChnages$
-      .pipe(takeUntil(this.unsubscribe))
       .subscribe((searchKey) => {
       this.weatherService.getWeatherToday(searchKey)
-        .pipe(takeUntil(this.unsubscribe))
-        .subscribe(res => { console.log(res); });
+        .subscribe((res) => this.weatherTodayData = res );
     });
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestory');
-    this.unsubscribe.next();
-    this.unsubscribe.complete();
+    // console.log('ngOnDestory');
+    // this.unsubscribe.next();
+    // this.unsubscribe.complete();
   }
 
 }

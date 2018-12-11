@@ -1,3 +1,30 @@
-<p>
-  weather-today works!
-</p>
+<div class="weather-today-container" *ngIf="weatherTodayData">
+  <div class="weather-today__temp">
+    <span class="temp__location">
+      {{weatherTodayData?.name}},
+      {{weatherTodayData?.sys.country}}
+    </span>
+    <span class="temp__numbers">
+      {{weatherTodayData?.main.temp | number: '1.0-0'}}
+      <span><sup>0</sup>C</span>
+    </span>
+
+  </div>
+
+  <div class="weather-today__icon">
+    <img src="https://openweathermap.org/img/w/{{weatherTodayData?.weather[0].icon}}.png" alt="weather-icon">
+    <div class="weather-today__icon-description">{{weatherTodayData?.weather[0].description}}</div>
+  </div>
+
+  <div class="weather-today__description">
+    <ul class="description-list-items">
+      <li class="list-item"><span class="title-item">Pressure:</span>{{weatherTodayData?.main.pressure}}</li>
+      <li class="list-item"><span class="title-item">Humidity:</span>{{weatherTodayData?.main.humidity}}</li>
+      <li class="list-item"><span class="title-item">Wind Speed:</span>{{weatherTodayData?.wind.speed}}</li>
+      <li class="list-item"><span class="title-item">Clouds:</span>{{weatherTodayData?.clouds.all}}%</li>
+    </ul>
+  </div>
+</div>
+
+
+
