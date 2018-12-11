@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SearchKeyService } from '../../../main/shared/search-key.service';
 
 @Component({
   selector: 'app-weather-search',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherSearchComponent implements OnInit {
 
-  constructor() { }
+  @Output() searchKey: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit() {
+  constructor(private searchKeyService: SearchKeyService) { }
+
+  ngOnInit() {}
+
+  onSearchInput(event) {
+    const value = event.target.value;
+    this.searchKeyService.emitChange(value);
+  }
+
+  onSearchButton(value: string) {
+    this.searchKeyService.emitChange(value);
   }
 
 }

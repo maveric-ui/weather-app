@@ -7,6 +7,25 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+
+  .logo-container {
+    background-color: $primary-background-color;
+    padding: 10px;
+    width: 200px;
+    min-width: 200px;
+    text-align: center;
+    border-radius: 3px;
+
+    .logo {
+      font-family: 'Helvetica', sans-serif;
+      font-weight: 400;
+      color: #FF7043;
+    }
+  }
+
+  .header-items {
+    width: 100%;
+  }
 
 }

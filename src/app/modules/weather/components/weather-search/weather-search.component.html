@@ -1,5 +1,10 @@
-<div class="weather-search-container">
-  <button type="button" class="btn btn-primary">
-    Single Button
-  </button>
+<div class="weather-search-container container-fluid">
+  <mat-form-field class="field-search">
+    <mat-icon matPrefix class="i-search" (click)="onSearchButton(search.value)">search</mat-icon>
+    <input type="text" matInput #search placeholder="Search"
+           [ngModel]="search.value"
+           (keydown.enter)="onSearchInput($event)"
+    >
+    <mat-hint>You can find country by ID or city by name</mat-hint>
+  </mat-form-field>
 </div>

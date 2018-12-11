@@ -6,10 +6,17 @@ import { WeatherForecastComponent } from './components/weather-forecast/weather-
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './services/weather.service';
 import { WeatherSearchComponent } from './components/weather-search/weather-search.component';
+import { MatInputModule, MatIconModule, MatFormFieldModule, MatButtonModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 const modules = [
   CommonModule,
   HttpClientModule,
+  MatInputModule,
+  MatIconModule,
+  MatFormFieldModule,
+  FormsModule,
+  MatButtonModule
 ];
 
 @NgModule({

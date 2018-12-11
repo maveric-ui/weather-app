@@ -1,4 +1,15 @@
 .weather-search-container {
   width: 100%;
+  min-width: 400px;
 
+  .field-search {
+    width: 100%;
+
+    .i-search {
+      position: relative;
+      top: 6px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  }
 }
