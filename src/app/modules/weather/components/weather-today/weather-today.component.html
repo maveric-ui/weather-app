@@ -1,36 +1,36 @@
-<div class="weather-today-container">
+<div class="weather-today-container" *ngIf="weatherTodayData">
   <div class="weather-today__temp">
     <span class="temp__location">
-      {{currentWeatherTodayData?.name}},
-      {{currentWeatherTodayData?.sys.country}}
+      {{weatherTodayData?.name}},
+      {{weatherTodayData?.sys.country}}
     </span>
     <span class="temp__numbers">
-      {{currentWeatherTodayData?.main.temp | number: '1.0-0'}}
+      {{weatherTodayData?.main.temp | number: '1.0-0'}}
       <span><sup>0</sup>C</span>
     </span>
 
   </div>
 
   <div class="weather-today__icon">
-    <img src="https://openweathermap.org/img/w/{{currentWeatherTodayData?.weather[0].icon}}.png" alt="weather-icon">
+    <img src="https://openweathermap.org/img/w/{{weatherTodayData?.weather[0].icon}}.png" alt="weather-icon">
     <div class="weather-today__icon-description">
-      {{currentWeatherTodayData?.weather[0].description}}
+      {{weatherTodayData?.weather[0].description}}
     </div>
   </div>
 
   <div class="weather-today__description">
     <ul class="description-list-items">
       <li class="list-item"><span class="title-item">Pressure:</span>
-        {{currentWeatherTodayData?.main.pressure}}mm Hg
+        {{weatherTodayData?.main.pressure}}mm Hg
       </li>
       <li class="list-item"><span class="title-item">Humidity:</span>
-        {{currentWeatherTodayData?.main.humidity}}%
+        {{weatherTodayData?.main.humidity}}%
       </li>
       <li class="list-item"><span class="title-item">Wind Speed:</span>
-        {{currentWeatherTodayData?.wind.speed}}km/h
+        {{weatherTodayData?.wind.speed}}km/h
       </li>
       <li class="list-item"><span class="title-item">Clouds:</span>
-        {{currentWeatherTodayData?.clouds.all}}%
+        {{weatherTodayData?.clouds.all}}%
       </li>
     </ul>
   </div>

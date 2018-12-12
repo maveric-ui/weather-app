@@ -6,25 +6,12 @@ import { WeatherToday } from '../../classes/weather-today';
   templateUrl: './weather-today.component.html',
   styleUrls: ['./weather-today.component.scss']
 })
-export class WeatherTodayComponent implements OnInit, OnChanges {
+export class WeatherTodayComponent implements OnInit{
 
-  @Input() private weatherTodayData: WeatherToday;
-
-  public currentWeatherTodayData: WeatherToday;
+  @Input() public weatherTodayData: WeatherToday;
 
   constructor() { }
 
-  ngOnChanges( changes: SimpleChanges) {
-    if (changes.weatherTodayData && !changes.weatherTodayData.isFirstChange()) {
-      this.getCurrentWeatherTodayData(changes.weatherTodayData.currentValue);
-    }
-  }
-
   ngOnInit() {}
-
-  getCurrentWeatherTodayData(currentData) {
-    this.currentWeatherTodayData = currentData;
-  }
-
 
 }

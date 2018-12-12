@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WeatherService } from './services/weather.service';
 import { SearchKeyService } from '../main/shared/search-key.service';
 import { WeatherToday } from './classes/weather-today';
-import { Forecast } from './classes/weather-forecast';
+import { ForecastArray } from './classes/weather-forecast';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
 
   private startKey: string;
   public weatherTodayData: WeatherToday[];
-  public forecastData: Forecast[];
+  public forecastData: ForecastArray[];
 
   constructor(private weatherService: WeatherService,
               private searchKeyService: SearchKeyService) { }
@@ -42,14 +42,14 @@ export class WeatherComponent implements OnInit, OnDestroy {
 
   getForecastData() {
     this.weatherService.getForecast(this.startKey)
-      .subscribe((res: Forecast[]) => this.forecastData = res);
+      .subscribe((res: ForecastArray[]) => this.forecastData = res);
   }
 
   filterForecastDataByName() {
     this.searchKeyService.emitChnages$
       .subscribe((searchKey) => {
         this.weatherService.getForecast(searchKey)
-          .subscribe((res: Forecast[]) => this.forecastData = res);
+          .subscribe((res: ForecastArray[]) => this.forecastData = res);
       });
   }
 
