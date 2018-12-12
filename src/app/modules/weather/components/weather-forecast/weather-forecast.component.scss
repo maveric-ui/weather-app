@@ -1,0 +1,15 @@
+@import "./colors";
+
+.weather-forecast-container {
+  color: $default-color;
+  margin-top: 20px;
+  width: 100%;
+
+  .tab-group {
+    .mat-tab-label-content {
+      font-size: 1rem;
+      color: $default-color;
+    }
+  }
+
+}

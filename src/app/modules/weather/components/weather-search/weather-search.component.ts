@@ -14,7 +14,7 @@ export class WeatherSearchComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSearchInput(event) {
+  onSearchKey(event) {
     const value = event.target.value;
     this.searchKeyService.emitChange(value);
   }

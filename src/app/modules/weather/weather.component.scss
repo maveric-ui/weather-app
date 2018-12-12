@@ -3,6 +3,7 @@
 .weather-container {
   height: calc(100% - 80px);
   width: 100%;
+  min-width: 650px;
   padding: 25px;
   display: flex;
   flex-direction: column;

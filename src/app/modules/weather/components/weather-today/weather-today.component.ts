@@ -1,4 +1,4 @@
-import {  Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { WeatherToday } from '../../classes/weather-today';
 
 @Component({
@@ -6,14 +6,24 @@ import { WeatherToday } from '../../classes/weather-today';
   templateUrl: './weather-today.component.html',
   styleUrls: ['./weather-today.component.scss']
 })
-export class WeatherTodayComponent implements OnInit {
+export class WeatherTodayComponent implements OnInit, OnChanges {
 
-  @Input() public weatherTodayData: WeatherToday;
+  @Input() private weatherTodayData: WeatherToday;
+
+  public currentWeatherTodayData: WeatherToday;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges( changes: SimpleChanges) {
+    if (changes.weatherTodayData && !changes.weatherTodayData.isFirstChange()) {
+      this.getCurrentWeatherTodayData(changes.weatherTodayData.currentValue);
+    }
+  }
 
+  ngOnInit() {}
+
+  getCurrentWeatherTodayData(currentData) {
+    this.currentWeatherTodayData = currentData;
   }
 
 

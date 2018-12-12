@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiID: '725f7dda05897a75e4a5f341393a552e',
-  baseUrl: 'https://api.openweathermap.org/data/2.5/',
+  apiID: '35c8cf54bb1ee3d5c518c6647f325bf4',
+  urlBase: 'https://api.openweathermap.org/data/2.5/',
   units: 'metric'
 };
 

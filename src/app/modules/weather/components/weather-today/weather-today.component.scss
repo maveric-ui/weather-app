@@ -6,8 +6,6 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  position: relative;
-  top: 40px;
 
   .weather-today__temp {
     display: flex;
@@ -46,6 +44,7 @@
       flex-direction: row;
       justify-content: space-around;
       margin: 0;
+      padding: 0;
       list-style: none;
 
       .title-item {
