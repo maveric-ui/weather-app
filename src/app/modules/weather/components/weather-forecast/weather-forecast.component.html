@@ -1,18 +1,18 @@
 <div class="weather-forecast-container">
-  <mat-tab-group mat-stretch-tabs [selectedIndex]="0" class="tab-group" animationDuration="0ms"
+  <mat-tab-group mat-stretch-tabs [selectedIndex]="1" class="tab-group" animationDuration="0ms"
                  (selectedTabChange)="handleTabChanges($event)"
   >
     <mat-tab class="tab-item" label="Wind">
-      <canvas id="canvasWind" height="75">{{chartWind}}</canvas>
+        <canvas id="canvasWind" #canvasWind></canvas>
     </mat-tab>
     <mat-tab class="tab-item" label="Temp">
-      <canvas id="canvasTemp" height="75">{{chartTemp}}</canvas>
+        <canvas id="canvasTemp" #canvasTemp></canvas>
     </mat-tab>
     <mat-tab class="tab-item" label="Pressure">
-      <!--<canvas id="canvasPressure" height="75">{{chartPressure}}</canvas>-->
+      <canvas id="canvasPressure" height="75"></canvas>
     </mat-tab>
     <mat-tab class="tab-item" label="Humidity">
-      <!--<canvas id="canvasHumidity" height="75">{{chartHumidity}}</canvas>-->
+      <canvas id="canvasHumidity" height="75"></canvas>
     </mat-tab>
   </mat-tab-group>
 </div>

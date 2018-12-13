@@ -1,4 +1,12 @@
-import { Component, Input, OnInit, ViewEncapsulation, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewEncapsulation,
+  OnChanges,
+  SimpleChanges,
+  ElementRef, ViewChild
+} from '@angular/core';
 import Chart from 'chart.js';
 import { ForecastArray, ForecastObject } from '../../classes/weather-forecast';
 import { MatTabChangeEvent } from '@angular/material';
@@ -11,52 +19,42 @@ import { MatTabChangeEvent } from '@angular/material';
 })
 export class WeatherForecastComponent implements OnInit, OnChanges {
 
-  @Input() private forecastData: ForecastArray[];
-  public chartWind;
-  public chartTemp;
-  private windForecast: number[];
-  private tempForecast: number[];
-  private pressureForecast: number[];
-  private humidityForecast: number[];
+  @ViewChild('canvasWind') canvasWind: ElementRef;
+  @ViewChild('canvasTemp') canvasTemp: ElementRef;
+
+  @Input() public forecastData: ForecastArray[];
+  private chartForecast: Chart;
+
+  private windForecastData: number[];
+  private tempForecastData: number[];
+  private pressureForecastData: number[];
+  private humidityForecastData: number[];
   private allDates: string[];
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.forecastData && !changes.forecastData.isFirstChange()) {
       this.getForecastData(changes.forecastData.currentValue);
-      this.chartWindInit();
-      this.chartTempInit();
+      this.chartInit();
     }
   }
 
   ngOnInit() {}
 
-  handleTabChanges(event: MatTabChangeEvent) {}
-
   getForecastData(forecastData) {
-    this.windForecast = forecastData.map((data: ForecastObject) => data.wind.speed);
-    this.tempForecast = forecastData.map((data: ForecastObject) => data.main.temp);
-    this.pressureForecast = forecastData.map((data: ForecastObject) => data.main.pressure);
-    this.humidityForecast = forecastData.map((data: ForecastObject) => data.main.humidity);
+    this.windForecastData = forecastData.map((data: ForecastObject) => data.wind.speed);
+    this.tempForecastData = forecastData.map((data: ForecastObject) => data.main.temp);
+    this.pressureForecastData = forecastData.map((data: ForecastObject) => data.main.pressure);
+    this.humidityForecastData = forecastData.map((data: ForecastObject) => data.main.humidity);
     this.allDates = forecastData.map((data: ForecastObject) => {
       return new Date(data.dt_txt)
         .toLocaleDateString('en', {month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'});
     });
   }
 
-  chartWindInit() {
-    const dataWind = {
-      labels: this.allDates,
-      datasets: [{
-        label: 'Wind',
-        data: this.windForecast,
-        borderColor: '#ff9191',
-        backgroundColor: '#ddd',
-        fill: 'start'
-      }]
-    };
-
+  chartInit() {
     const options = {
       legend: {
         display: false,
@@ -71,44 +69,42 @@ export class WeatherForecastComponent implements OnInit, OnChanges {
       }
     };
 
-    this.chartWind = new Chart('canvasWind', {
+    const data = {
+      labels: this.allDates,
+      datasets: [{
+        label: 'Temp',
+        data: this.tempForecastData,
+        borderColor: '#ff9191',
+        backgroundColor: '#ddd',
+        fill: 'start'
+      }]
+    };
+
+    this.chartForecast = new Chart(this.canvasTemp.nativeElement.getContext('2d'), {
       type: 'line',
-      data: {...dataWind},
+      data: {...data},
       options: {...options}
     });
   }
 
-  chartTempInit() {
-    const dataTemp = {
-      labels: this.allDates,
-      datasets: [{
-        label: 'Temp',
-        data: this.tempForecast,
-        borderColor: '#ff9191',
-        backgroundColor: '#ddd',
-        fill: 'start'
-      }]
-    };
 
-    const options = {
-      legend: {
-        display: false,
-      },
-      scalse: {
-        xAxes: [{
-          display: true
-        }],
-        yAxes: [{
-          display: true
-        }]
-      }
-    };
-
-    this.chartTemp = new Chart('canvasTemp', {
-      type: 'line',
-      data: {...dataTemp},
-      options: {...options}
-    });
-
+  handleTabChanges(event: MatTabChangeEvent) {
+    const index = event.index;
+    switch (index) {
+      case 0:
+        console.log(this.windForecastData);
+        break;
+      case 1:
+        console.log(this.tempForecastData);
+        break;
+      case 2:
+        console.log(this.pressureForecastData);
+        break;
+      case 3:
+        console.log(this.humidityForecastData);
+        break;
+      default:
+        break;
+    }
   }
 }
